@@ -129,7 +129,7 @@ class Company extends DataObject
             $company = new Company();
             $company->Name = $companyData[0];
             $company->Category = $companyData[1];
-            $company->Revenue = $companyData[2];
+            $company->Revenue = (float) $companyData[2];
             $company->CEO = $companyData[3];
             $company->write();
         }
