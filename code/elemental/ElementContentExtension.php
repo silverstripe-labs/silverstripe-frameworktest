@@ -28,7 +28,7 @@ class ElementContentExtension extends Extension
         'MyFile' => File::class,
     ];
 
-    protected function updatevalidate(ValidationResult $result)
+    protected function updateValidate(ValidationResult $result)
     {
         if ($this->owner->Title == 'x') {
             $result->addFieldError('Title', 'Title cannot be x');

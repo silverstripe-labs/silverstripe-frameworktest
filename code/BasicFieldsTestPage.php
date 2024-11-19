@@ -50,11 +50,11 @@ class BasicFieldsTestPage extends TestPage
         'Money' => 'Money',
         'MyCompositeField1' => 'Varchar',
         'MyCompositeField2' => 'Varchar',
-        'MyCompositeField3' => 'Varchar',
+        'MyCompositeField3' => 'Int',
         'MyCompositeFieldCheckbox' => 'Boolean',
         'MyFieldGroup1' => 'Varchar',
         'MyFieldGroup2' => 'Varchar',
-        'MyFieldGroup3' => 'Varchar',
+        'MyFieldGroup3' => 'Int',
         'MyFieldGroupCheckbox' => 'Boolean',
         'MyLabelledFieldGroup1' => 'Varchar',
         'MyLabelledFieldGroup2' => 'Varchar',
@@ -70,7 +70,7 @@ class BasicFieldsTestPage extends TestPage
         'Time' => 'Time',
         'TimeHTML5' => 'Time',
         'ToggleCompositeTextField1' => 'Varchar',
-        'ToggleCompositeDropdownField' => 'Varchar',
+        'ToggleCompositeDropdownField' => 'Int',
         'Validated' => 'Int',
     );
 
@@ -323,13 +323,13 @@ class BasicFieldsTestPage extends TestPage
                 $disabledField = $field->performDisabledTransformation();
                 $disabledField->setTitle($disabledField->Title() . ' (disabled)');
                 $disabledField->setName($disabledField->getName() . '_disabled');
-                $disabledField->setValue($this->getField($field->getName()));
+                $disabledField->setValue($field->getValue());
                 $tabObj->insertAfter($field->getName(), $disabledField);
 
                 $readonlyField = $field->performReadonlyTransformation();
                 $readonlyField->setTitle($readonlyField->Title() . ' (readonly)');
                 $readonlyField->setName($readonlyField->getName() . '_readonly');
-                $readonlyField->setValue($this->getField($field->getName()));
+                $readonlyField->setValue($field->getValue());
                 $tabObj->insertAfter($field->getName(), $readonlyField);
             }
         }
