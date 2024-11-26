@@ -368,4 +368,15 @@ class Company extends DataObject
         return DropdownField::create('CompanyID', 'Company', Company::get()->map())->setEmptyString('');
     }
 
+    public function getStatusFlags(bool $cached = true): array
+    {
+        $this->beforeExtending('updateStatusFlags', function (array &$flags) {
+            $flags['company-status-flag1'] = 'string-flag';
+            $flags['company-status-flag2'] = [
+                'title' => 'a flag with a title',
+                'text' => 'array-flag',
+            ];
+        });
+        return parent::getStatusFlags($cached);
+    }
 }
