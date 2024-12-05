@@ -13,7 +13,7 @@ use SilverStripe\Versioned\RecursivePublishable;
 use SilverStripe\Versioned\Versioned;
 use RelationFieldsTestPage;
 use GridFieldTestPage;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 
 /**
  *
@@ -103,7 +103,7 @@ class Company extends DataObject
 
     public function getCMSValidator()
     {
-        return new RequiredFields(
+        return new RequiredFieldsValidator(
             ['Name']
         );
     }

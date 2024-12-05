@@ -31,7 +31,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\CompositeField;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\HTMLReadonlyField;
 
 class BasicFieldsTestPage extends TestPage
@@ -399,7 +399,7 @@ class BasicFieldsTestPage extends TestPage
 
     public function getCMSValidator()
     {
-        return new RequiredFields('Required');
+        return new RequiredFieldsValidator('Required');
     }
 
     public function validate()

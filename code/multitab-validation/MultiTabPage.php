@@ -4,7 +4,7 @@ namespace SilverStripe\FrameworkTest\Model;
 
 use Page;
 use SilverStripe\Forms\EmailField;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\TextField;
 
 if (!class_exists(Page::class)) {
@@ -51,7 +51,7 @@ class MultiTabPage extends Page
 
     public function getCMSValidator()
     {
-        return new RequiredFields([
+        return new RequiredFieldsValidator([
             'ThirdTabFirstField',
             'FourthTabFirstField',
             // This is only validated if you are actually on the settings tab when clicking save
@@ -63,7 +63,7 @@ class MultiTabPage extends Page
     {
         $result = parent::validate();
 
-        // Validation error on specific form field that is not in RequiredFields
+        // Validation error on specific form field that is not in RequiredFieldsValidator
         if ($this->SecondTabFirstField && $this->SecondTabFirstField !== '222') {
             $result->addFieldError('SecondTabFirstField', 'Value of field must be 222');
         }

@@ -5,7 +5,7 @@ namespace SilverStripe\FrameworkTest\Model;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\NumericField;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\Connect\MySQLSchemaManager;
 use SilverStripe\ORM\DataObject;
@@ -144,7 +144,7 @@ class Employee extends DataObject
 
     public function getCMSValidator()
     {
-        return new RequiredFields(
+        return new RequiredFieldsValidator(
             ['Name']
         );
     }

@@ -7,9 +7,9 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Core\Validation\ValidationResult;
-use SilverStripe\Forms\CompositeValidator;
+use SilverStripe\Forms\Validation\CompositeValidator;
 use SilverStripe\Forms\NumericField;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\SearchableDropdownField;
 use SilverStripe\Forms\TextField;
 
@@ -43,7 +43,7 @@ class ElementContentExtension extends Extension
 
     protected function updateCMSCompositeValidator(CompositeValidator $compositeValidator)
     {
-        $compositeValidator->addValidator(new RequiredFields(['Title', 'MyPageID', 'MyFile']));
+        $compositeValidator->addValidator(new RequiredFieldsValidator(['Title', 'MyPageID', 'MyFile']));
     }
 
     protected function updateCMSFields(FieldList $fields)
