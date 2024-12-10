@@ -4,7 +4,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\FormAction;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\Form;
 use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTPResponse;
@@ -34,7 +34,7 @@ class RecaptchaTestPage_Controller extends PageController
             new FieldList(
                 new FormAction('submit', 'submit')
             ),
-            new RequiredFields(array('MyText'))
+            new RequiredFieldsValidator(array('MyText'))
         );
 
         return $form;

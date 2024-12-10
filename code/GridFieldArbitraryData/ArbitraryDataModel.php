@@ -176,7 +176,7 @@ class ArbitraryDataModel extends ArrayData implements DataObjectInterface
     // {
     //     return CompositeValidator::create([
     //         FieldsValidator::create(),
-    //         RequiredFields::create(['Title']),
+    //         RequiredFieldsValidator::create(['Title']),
     //     ]);
     // }
 

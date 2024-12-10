@@ -3,7 +3,7 @@
 namespace SilverStripe\FrameworkTest\Model;
 
 use Page;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\Tab;
 
 if (!class_exists(Page::class)) {
@@ -19,7 +19,7 @@ class SingleTabPage extends Page
 
     public function getCMSValidator()
     {
-        return new RequiredFields([
+        return new RequiredFieldsValidator([
             'Content'
         ]);
     }
