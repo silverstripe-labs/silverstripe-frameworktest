@@ -170,12 +170,10 @@ class ArbitraryDataModel extends ArrayData implements DataObjectInterface
         return FieldList::create($fields);
     }
 
-    // Note that a FieldsValidator is used by default, but we can add additional validation if we want
-    // by implementing this method:
+    // Note that we can add additional validation if we want by implementing this method:
     // public function getCMSCompositeValidator()
     // {
     //     return CompositeValidator::create([
-    //         FieldsValidator::create(),
     //         RequiredFieldsValidator::create(['Title']),
     //     ]);
     // }
