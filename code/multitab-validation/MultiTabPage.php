@@ -6,6 +6,7 @@ use Page;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Core\Validation\ValidationResult;
 
 if (!class_exists(Page::class)) {
     return;
@@ -59,7 +60,7 @@ class MultiTabPage extends Page
         ]);
     }
 
-    public function validate()
+    public function validate(): ValidationResult
     {
         $result = parent::validate();
 
