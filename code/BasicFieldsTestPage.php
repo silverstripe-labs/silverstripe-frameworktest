@@ -33,6 +33,7 @@ use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\HTMLReadonlyField;
+use SilverStripe\Core\Validation\ValidationResult;
 
 class BasicFieldsTestPage extends TestPage
 {
@@ -402,7 +403,7 @@ class BasicFieldsTestPage extends TestPage
         return new RequiredFieldsValidator('Required');
     }
 
-    public function validate()
+    public function validate(): ValidationResult
     {
         $result = parent::validate();
         if (!$this->Validated || $this->Validated < 1 || $this->Validated > 3) {
