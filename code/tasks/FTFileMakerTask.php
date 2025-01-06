@@ -281,7 +281,7 @@ class FTFileMakerTask extends BuildTask
         $promises = [];
         $paths = [];
         foreach ($fixtureFileNames as $filename) {
-            $path = TEMP_FOLDER . '/' . $filename;
+            $path = TEMP_PATH . '/' . $filename;
             $paths[$filename] = $path;
             $url = "{$this->fixtureFileBaseUrl}/{$filename}";
             if (!file_exists($path ?? '')) {
