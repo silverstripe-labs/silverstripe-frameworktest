@@ -19,8 +19,7 @@
         "silverstripe/framework": "^6",
         "silverstripe/cms": "^6",
         "guzzlehttp/guzzle": "^7.9",
-        "fzaninotto/faker": "^1.9.2",
-        "silverstripe/vendor-plugin": "^2"
+        "fzaninotto/faker": "^1.9.2"
     },
     "extra": {
         "expose": [
