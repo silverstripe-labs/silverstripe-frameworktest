@@ -5,6 +5,7 @@ namespace SilverStripe\FrameworkTest\Model;
 use Page;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\Validation\CompositeValidator;
 
 if (!class_exists(Page::class)) {
     return;
@@ -17,11 +18,11 @@ class SingleTabPage extends Page
 {
     private static $table_name = 'SingleTabPage';
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return new RequiredFieldsValidator([
-            'Content'
-        ]);
+        $validator = parent::getCMSCompositeValidator();
+        $validator->addValidator(new RequiredFieldsValidator(['Content']));
+        return $validator;
     }
 
     public function getCMSFields()

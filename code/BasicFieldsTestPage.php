@@ -34,6 +34,7 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\HTMLReadonlyField;
 use SilverStripe\Core\Validation\ValidationResult;
+use SilverStripe\Forms\Validation\CompositeValidator;
 
 class BasicFieldsTestPage extends TestPage
 {
@@ -398,9 +399,11 @@ class BasicFieldsTestPage extends TestPage
         return $fields;
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return new RequiredFieldsValidator('Required');
+        $validator = parent::getCMSCompositeValidator();
+        $validator->addValidator(new RequiredFieldsValidator('Required'));
+        return $validator;
     }
 
     public function validate(): ValidationResult

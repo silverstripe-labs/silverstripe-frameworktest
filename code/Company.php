@@ -13,6 +13,7 @@ use SilverStripe\Versioned\RecursivePublishable;
 use SilverStripe\Versioned\Versioned;
 use RelationFieldsTestPage;
 use GridFieldTestPage;
+use SilverStripe\Forms\Validation\CompositeValidator;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 
 /**
@@ -101,11 +102,11 @@ class Company extends DataObject
         return $fields;
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return new RequiredFieldsValidator(
-            ['Name']
-        );
+        $validator = parent::getCMSCompositeValidator();
+        $validator->addValidator(new RequiredFieldsValidator(['Name']));
+        return $validator;
     }
 
     public function DynamicProperty()

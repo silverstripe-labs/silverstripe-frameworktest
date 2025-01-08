@@ -7,6 +7,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Core\Validation\ValidationResult;
+use SilverStripe\Forms\Validation\CompositeValidator;
 
 if (!class_exists(Page::class)) {
     return;
@@ -50,14 +51,16 @@ class MultiTabPage extends Page
         return $fields;
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return new RequiredFieldsValidator([
+        $validator = parent::getCMSCompositeValidator();
+        $validator->addValidator(new RequiredFieldsValidator([
             'ThirdTabFirstField',
             'FourthTabFirstField',
             // This is only validated if you are actually on the settings tab when clicking save
             'SettingsTabFirstField'
-        ]);
+        ]));
+        return $validator;
     }
 
     public function validate(): ValidationResult
