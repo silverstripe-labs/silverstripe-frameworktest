@@ -7,6 +7,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Validation\CompositeValidator;
 use SilverStripe\ORM\Connect\MySQLSchemaManager;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DB;
@@ -142,11 +143,11 @@ class Employee extends DataObject
         srand();
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return new RequiredFieldsValidator(
-            ['Name']
-        );
+        $validator = parent::getCMSCompositeValidator();
+        $validator->addValidator(new RequiredFieldsValidator(['Name']));
+        return $validator;
     }
 
     /**
