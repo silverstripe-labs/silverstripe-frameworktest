@@ -13,7 +13,7 @@ class NumericFieldExtension extends Extension
 {
     protected function updateValidate(ValidationResult $result)
     {
-        if ($this->owner->Value() == 1) {
+        if ($this->owner->getValue() == 1) {
             $result->addFieldError($this->owner->getName(), 'This field cannot be 1');
         }
     }
