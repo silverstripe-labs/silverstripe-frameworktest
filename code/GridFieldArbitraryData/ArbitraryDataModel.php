@@ -7,7 +7,6 @@ use SilverStripe\Forms\DatetimeField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\TextField;
-use SilverStripe\ORM\DataObjectInterface;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\ORM\Queries\SQLDelete;
@@ -21,7 +20,7 @@ use SilverStripe\Model\ArrayData;
  * to do so. The database in this scenario could just as easily be an API or other
  * way to fetch and send data.
  */
-class ArbitraryDataModel extends ArrayData implements DataObjectInterface
+class ArbitraryDataModel extends ArrayData
 {
     /**
      * In order to validate that writing/deleting works for arbitrary data, we'll be storing these
